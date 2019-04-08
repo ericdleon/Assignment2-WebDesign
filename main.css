@@ -1,0 +1,374 @@
+:root {
+  --light: #fff;
+  --dark: #333;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
+  font-size: 0.9rem;
+}
+
+body {
+  background: var(--light);
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+img {
+  max-width: 100%;
+}
+
+.main-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-areas: 
+  'showcase'
+  'main'
+  'footer';
+}
+
+/* Tob-Bar */
+.top-bar {
+  display: grid;
+  position: absolute;
+  background-color: var(--shadow);
+  grid-template-columns: 1fr 1fr 1fr 0.1fr;
+  font-size: 0.8rem;
+}
+
+.nav-tools ul {
+  display: grid;
+  color: var(--light);
+  grid-template-columns: repeat(4, 0.1fr);
+  padding-left: 10px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.nav-tools li {
+  padding: 10px;
+}
+
+.nav-base ul {
+  display: grid;
+  color: var(--light);
+  grid-template-columns: repeat(5, 0.1fr);
+  text-transform: uppercase;
+  font-weight: lighter;
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  
+}
+
+.nav-base li {
+  padding: 10px
+}
+
+.search {
+  background-color: #CC0033;
+  text-align: center;
+  justify-items: center;
+  color: var(--light);
+}
+
+/* Showcase */
+.showcase {
+  display: grid;
+  grid-template-rows: 100vh
+}
+.bg-image {
+  position: absolute;
+  background:url(https://comminfo.rutgers.edu/sites/default/files/styles/slider_1900px/public/2018-10/Bldg%20pic%20summer.jpg?h=19f14c2c&itok=wSmtkEl4);
+  z-index: -1;
+  min-width: 100%;
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.shadow .logo {
+  width: 300px;
+  background-color: var(--shadow);
+}
+
+.logo {
+  position: absolute;
+  min-height: 100px;
+  margin-left: 3rem;
+  background: url(https://comminfo.rutgers.edu/themes/custom/comminfo/images/logo-big.png);
+  background-repeat: no-repeat;
+  top: 90px;
+}
+.main-menu {
+  display: grid;
+  position: absolute;
+  text-transform: uppercase;
+  justify-items: center;
+  right: 36px;
+  top: 90px;
+  color: var(--light);
+  background-color: var(--shadow);
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  font-size: 1.3rem;
+  z-index: 1;
+}
+
+.main-menu a {
+  color: var(--light);
+}
+
+.main-menu li {
+  padding: 9px;
+}
+
+.menu-item {
+  display: inline-block;
+}
+
+.menu-item:hover {
+  background-color: var(--shadow);
+}
+.menu-item:hover .submenu,
+.menu-item:focus .submenu {
+  display: block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  width: 220px;
+  background-color: var(--shadow);
+  font-size: 0.9rem;
+}
+
+.submenu-item:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Main */
+#main {
+  grid-area: main;
+  display: grid;
+  grid-template-areas: 
+  'section-a'
+  'section-b'
+  'section-c';
+}
+
+/* Section A */
+#section-a {
+  display: grid;
+  grid-area: section-a;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.btn-group button {
+  background-color: #CC0033; 
+  border: 1px solid black; 
+  color: white;  
+  cursor: pointer; 
+  min-height: 100%;
+  text-transform: uppercase;
+  padding: 30px;
+}
+
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.btn-group button:hover {
+  background-color: #AE012D;
+}
+
+/* Section B */
+#section-b {
+  display: grid;
+  grid-area: section-b;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 35rem;
+  grid-template-areas:
+    'item1 item2 item3';
+}
+
+.item1 {
+  grid-area: item1;
+}
+.item2 {
+  grid-area: item2;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin: 50px;
+}
+.item3 {
+  grid-area: item3;
+}
+
+.item1 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.item3 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Section C */
+#section-c {
+  display: grid;
+  justify-items: center;
+  grid-area: section-c;
+  grid-template-columns: repeat(2, 0.5fr);
+  grid-template-areas:
+    'box1 box2'
+    'box3 box4';
+}
+
+.box1 {
+  grid-area: box1;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #485A70;
+  position: relative;
+}
+
+.box2 {
+  object-fit: cover;
+  grid-area: box2;
+  max-height: 100%;
+  min-width: 100%;
+  position: relative;
+}
+
+.box3 {
+  object-fit: cover;
+  grid-area: box3;
+  max-height: 100%;
+  min-width: 100%;
+  position: relative;
+}
+
+.box4 {
+  grid-area: box4;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #CC0023;
+  position: relative;
+  text-align: left;
+}
+
+.box2 img {
+  height: 100%;
+}
+
+.box3 img {
+  height: 100%;
+}
+
+.box1 h2, .box2 h2, .box3 h2, .box4 h2 {
+  display: flex;
+  text-transform: uppercase;
+  color: var(--light);
+  position: absolute;
+  font-size: 2.5rem;
+  bottom: 300px;
+  left: 90px;
+}
+
+/* Footer */
+#main-footer {
+  display: grid;
+  grid-area: footer;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  color: var(--light);
+  background-color: #485B6E;
+}
+
+@media screen and (max-width: 768px) {
+  .top-bar {
+    display: grid;
+    position: absolute;
+    background-color: var(--shadow);
+   width: 100%;
+   height: 50px;
+  }
+  .shadow {
+    display: none;
+  }
+  .nav-tools ul {
+    display: none;
+  }
+  
+  .nav-base ul {
+    display: none;
+  }
+  
+  .search {
+    background-color: #CC0033;
+    text-align: center;
+    justify-items: center;
+    color: var(--light);
+  }
+  .logo {
+    display: none;
+  }
+  .main-menu {
+    display: none;
+  }
+
+  /* Section A */
+  #section-a {
+    grid-template-columns: 1fr
+  }
+
+  /* Section B */
+  #section-b {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      'item1'
+      'item2'
+      'item3';
+  }
+
+  /* Section C */
+  #section-c {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'box1'
+      'box2'
+      'box3'
+      'box4';
+  }
+
+  /* Footer */
+  #main-footer {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  }
